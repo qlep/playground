@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <title>Gleb's Coinapp</title>
+    <h1>Coinapp</h1>
+    <h2>Select coins to convert, yo</h2>
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+            <select name="coinselected" id="">
+                {% for coin in getListings %}
+                    <option value="{{ coin.name }}">{{coin.symbol}} {{ coin.name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Select</button>
+        </form>
+    </body>
+</html>
